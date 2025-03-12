@@ -15,6 +15,13 @@ pipeline {
             }
         }
         
+        stage('OWASP scan') {
+            steps {
+                dependencyCheck additionalArguments: "--scan . --disableYarnAudit  --disableNodeAudit", odcInstallation: 'myDC'
+                dependencyCheckPublisher pattern: "**/dependency-check-report.xml"
+            }
+        }
+        
         stage('Sonar Scanning') {
             steps {
                 withSonarQubeEnv('sonar-server') {
