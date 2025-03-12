@@ -1,53 +1,85 @@
-# BoardgameListingWebApp
+# Java Maven DevOps Project
 
-## Description 
+This repository contains a Java-based application managed with Maven, featuring an automated CI/CD pipeline using Jenkins. The project includes security scans, artifact deployment, and containerization for streamlined development and deployment.
 
-**Board Game Database Full-Stack Web Application.**
-This web application displays lists of board games and their reviews. While anyone can view the board game lists and reviews, they are required to log in to add/ edit the board games and their reviews. The 'users' have the authority to add board games to the list and add reviews, and the 'managers' have the authority to edit/ delete the reviews on top of the authorities of users.  
+---
 
-## Technologies
-
-- Java
-- Spring Boot
-- Amazon Web Services(AWS) EC2
-- Thymeleaf
-- Thymeleaf Fragments
-- HTML5
-- CSS
-- JavaScript
-- Spring MVC
-- JDBC
-- H2 Database Engine (In-memory)
-- JUnit test framework
-- Spring Security
-- Twitter Bootstrap
-- Maven
+    Maven-Project-Devops/
+    ├── src/                    # Source code directory
+    ├── pom.xml                # Maven build configuration
+    ├── Dockerfile             # Dockerfile for containerization
+    ├── Jenkinsfile            # Jenkins pipeline for CI/CD
+    ├── target/                # Compiled binaries and packaged artifacts
+    ├── README.md              # Project documentation
 
 ## Features
 
-- Full-Stack Application
-- UI components created with Thymeleaf and styled with Twitter Bootstrap
-- Authentication and authorization using Spring Security
-  - Authentication by allowing the users to authenticate with a username and password
-  - Authorization by granting different permissions based on the roles (non-members, users, and managers)
-- Different roles (non-members, users, and managers) with varying levels of permissions
-  - Non-members only can see the boardgame lists and reviews
-  - Users can add board games and write reviews
-  - Managers can edit and delete the reviews
-- Deployed the application on AWS EC2
-- JUnit test framework for unit testing
-- Spring MVC best practices to segregate views, controllers, and database packages
-- JDBC for database connectivity and interaction
-- CRUD (Create, Read, Update, Delete) operations for managing data in the database
-- Schema.sql file to customize the schema and input initial data
-- Thymeleaf Fragments to reduce redundancy of repeating HTML elements (head, footer, navigation)
+- **Maven Build**: Automates dependency management and project build.
+- **Static Code Analysis**: Uses SonarQube for code quality checks.
+- **Security Scanning**: Integrates OWASP Dependency Check and Trivy for vulnerability detection.
+- **Artifact Deployment**: Pushes the compiled package to an artifact repository.
+- **Containerization**: Builds a Docker image for easy deployment.
+- **CI/CD Pipeline**: Jenkins automates the entire process from code commit to deployment.
 
-## How to Run
+## Prerequisites
 
-1. Clone the repository
-2. Open the project in your IDE of choice
-3. Run the application
-4. To use initial user data, use the following credentials.
-  - username: bugs    |     password: bunny (user role)
-  - username: daffy   |     password: duck  (manager role)
-5. You can also sign-up as a new user and customize your role to play with the application! 😊
+- **Java (JDK 17+)**: Required for compiling the project.
+- **Maven**: For building and managing dependencies.
+- **Docker**: For containerizing the application.
+- **Jenkins**: Configured with required plugins.
+- **SonarQube**: For code analysis.
+- **Trivy & OWASP Dependency Check**: For security scans.
+
+## How to Run the Project
+
+### Step 1: Clone the Repository
+```bash
+    git clone https://github.com/mushahid2120/Maven-Project-Devops.git
+    cd Maven-Project-Devops
+```
+
+### Step 2: Build the Project with Maven
+```bash
+    mvn clean package
+```
+
+### Step 3: Run the Application Locally
+```bash
+    java -jar target/*.jar
+```
+
+### Step 4: Build and Run with Docker
+
+#### Build Docker Image
+```bash
+    docker build -t mushahid144/java-maven:v1 .
+```
+
+#### Run Container
+```bash
+    docker run -dit -p 80:8080 --name myjavaapp mushahid144/java-maven:v1
+```
+
+## Jenkins Pipeline
+
+A Jenkins pipeline automates the build, security scanning, artifact deployment, and containerization.
+
+#### Stages in Jenkins Pipeline:
+1. **Git Checkout** - Pulls the latest code from the repository.
+2. **Compile** - Builds the project using Maven.
+3. **OWASP Dependency Check** - Scans for security vulnerabilities.
+4. **SonarQube Analysis** - Performs static code analysis.
+5. **Push Artifact** - Deploys the compiled package to an artifact repository.
+6. **Docker Build** - Creates a Docker image.
+7. **Trivy Security Scan** - Scans the Docker image for vulnerabilities.
+8. **Docker Push** - Pushes the image to a container registry.
+9. **Docker Run** - Runs the containerized application.
+
+## Future Enhancements
+
+- Implement CI/CD with **ArgoCD** for GitOps workflow.
+- Use **Kubernetes** for scalable deployments.
+- Automate infrastructure provisioning with **Terraform**.
+- Enhance security with **SAST/DAST** tools.
+
+---
