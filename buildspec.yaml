@@ -20,7 +20,7 @@ phases:
   post_build:
     commands:
       - echo "This is post building phase......" 
-      - docker tag mavenapp:latest 974871161012.dkr.ecr.ap-south-1.amazonaws.com/codebuild/maven:latest
+      - docker tag mavenapp:v1 974871161012.dkr.ecr.ap-south-1.amazonaws.com/codebuild/maven:latest
       # - docker login  -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
       - docker push 974871161012.dkr.ecr.ap-south-1.amazonaws.com/codebuild/maven:latest
       # - docker push mushahid144/mavenapp:v1
