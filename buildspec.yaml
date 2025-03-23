@@ -17,4 +17,11 @@ phases:
   post_build:
     commands:
       - echo "This is post building phase......" 
-
+artifacts:
+  files:
+    - 'target/*.jar'
+  base-directory: target
+  discard-paths: no
+  name: myjarfiles
+    
+    
