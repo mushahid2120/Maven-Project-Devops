@@ -19,9 +19,9 @@ phases:
       - echo "This is post building phase......" 
 artifacts:
   files:
-    - '*.jar'
-  base-directory: target
-  discard-paths: no
+    - 'target/*.jar'
+    - Dockerfile
+  discard-paths: yes
   name: myjarfiles
     
     
