@@ -19,7 +19,7 @@ phases:
       - echo "This is post building phase......" 
 artifacts:
   files:
-    - 'target/*.jar'
+    - '*.jar'
   base-directory: target
   discard-paths: no
   name: myjarfiles
