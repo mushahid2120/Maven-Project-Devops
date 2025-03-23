@@ -9,9 +9,11 @@ phases:
   pre_build:
     commands:
       - echo "This is pre building"
+      - mvn clean compile
   build:
     commands:
       - echo "This is Building Phases"
+      - mvn clean package
   post_build:
     commands:
       - echo "This is post building phase......" 
