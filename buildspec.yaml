@@ -15,6 +15,7 @@ phases:
     commands:
       - echo "This is Building Phases"
       - mvn clean package
+      - mvn -s settings.xml deploy
       - docker build -t mushahid144/mavenapp:v1 .
   post_build:
     commands:
