@@ -11,5 +11,9 @@ phases:
       - echo "This is Building Phases"
   post_build:
     commands:
-      - echo "This is post building phase......"
+      - echo "This is post building phase......" 
+artifacts:
+  files:
+    - **/*
+  name: myarti
   
