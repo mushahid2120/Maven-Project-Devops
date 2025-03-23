@@ -116,7 +116,7 @@
 		</plugins>
 	</build>
 
-	<distributionManagement>
+<!--     <distributionManagement>
         <repository>
             <id>maven-releases</id>
             <url>http://127.0.0.1:8081/repository/maven-releases/</url>
@@ -125,6 +125,14 @@
             <id>maven-snapshots</id>
             <url>http://127.0.0.1:8081/repository/maven-snapshots/</url>
         </snapshotRepository>
-    </distributionManagement>
+    </distributionManagement> -->
+
+<distributionManagement>
+  <repository>
+    <id>mymaven-myart</id>
+    <name>mymaven-myart</name>
+    <url>https://mymaven-974871161012.d.codeartifact.ap-south-1.amazonaws.com/maven/myart/</url>
+  </repository>
+</distributionManagement>
 
 </project>
