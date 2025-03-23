@@ -16,12 +16,14 @@ phases:
       - echo "This is Building Phases"
       - mvn clean package
       - mvn -s settings.xml deploy
-      - docker build -t mushahid144/mavenapp:v1 .
+      - docker build -t mavenapp:v1 .
   post_build:
     commands:
       - echo "This is post building phase......" 
-      - docker login  -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-      - docker push mushahid144/mavenapp:v1
+      - docker tag mavenapp:latest 974871161012.dkr.ecr.ap-south-1.amazonaws.com/codebuild/maven:latest
+      # - docker login  -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+      - docker push 974871161012.dkr.ecr.ap-south-1.amazonaws.com/codebuild/maven:latest
+      # - docker push mushahid144/mavenapp:v1
 # artifacts:
 #   files:
 #     - 'target/*.jar'
