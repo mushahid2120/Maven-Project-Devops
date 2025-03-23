@@ -1,8 +1,8 @@
 /root/Maven-Project-Devops/src/main/java/com/javaproject/DatabaseServiceProjectApplication.java
 /root/Maven-Project-Devops/src/main/java/com/javaproject/beans/BoardGame.java
 /root/Maven-Project-Devops/src/main/java/com/javaproject/beans/ErrorMessage.java
-/root/Maven-Project-Devops/src/main/java/com/javaproject/security/LoggingAccessDeniedHandler.java
 /root/Maven-Project-Devops/src/main/java/com/javaproject/database/DatabaseAccess.java
+/root/Maven-Project-Devops/src/main/java/com/javaproject/security/LoggingAccessDeniedHandler.java
 /root/Maven-Project-Devops/src/main/java/com/javaproject/controllers/HomeController.java
 /root/Maven-Project-Devops/src/main/java/com/javaproject/security/SecurityConfig.java
 /root/Maven-Project-Devops/src/main/java/com/javaproject/controllers/BoardGameController.java
