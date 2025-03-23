@@ -12,7 +12,4 @@ phases:
   post_build:
     commands:
       - echo "This is post building phase......" 
-artifacts:
-  files:
-    - "**/*"
-  
+
