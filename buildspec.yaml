@@ -15,21 +15,21 @@ phases:
     commands:
       - echo "This is Building Phases"
       - mvn clean package
-      - mvn -s settings.xml deploy
-      - docker build -t mavenapp:v1 .
+      # - mvn -s settings.xml deploy
+      # - docker build -t mavenapp:v1 .
   post_build:
     commands:
       - echo "This is post building phase......" 
-      - aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 974871161012.dkr.ecr.ap-south-1.amazonaws.com
-      - docker tag mavenapp:v1 974871161012.dkr.ecr.ap-south-1.amazonaws.com/codebuild/maven:latest
+      # - aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 974871161012.dkr.ecr.ap-south-1.amazonaws.com
+      # - docker tag mavenapp:v1 974871161012.dkr.ecr.ap-south-1.amazonaws.com/codebuild/maven:latest
       # - docker login  -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-      - docker push 974871161012.dkr.ecr.ap-south-1.amazonaws.com/codebuild/maven:latest
+      # - docker push 974871161012.dkr.ecr.ap-south-1.amazonaws.com/codebuild/maven:latest
       # - docker push mushahid144/mavenapp:v1
-# artifacts:
-#   files:
-#     - 'target/*.jar'
-#     - Dockerfile
-#   discard-paths: no
-#   name: myjarfiles
+artifacts:
+  files:
+    - 'target/*.jar'
+    - Dockerfile
+  discard-paths: no
+  name: myjarfiles
     
     
