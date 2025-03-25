@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "starting the server"
+systemctl start httpd
