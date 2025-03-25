@@ -1,3 +1,4 @@
 #!/bin/bash
 
-echo "This is before before install"
+yum install httpd -y
+
