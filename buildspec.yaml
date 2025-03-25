@@ -25,6 +25,8 @@ phases:
       # - docker login  -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
       # - docker push 974871161012.dkr.ecr.ap-south-1.amazonaws.com/codebuild/maven:latest
       # - docker push mushahid144/mavenapp:v1
+      - zip maven.zip -r .
+      - aws s3 cp maven.zip s3://mum-bucket-for-code-deploy
 artifacts:
   files:
     - "**/*"
