@@ -1,6 +1,8 @@
 # Java Maven DevOps Project
 
-![] (project-design.jpg)
+![project-design](https://github.com/user-attachments/assets/c4e90706-512d-4a62-ac87-77fa11ec7660)
+
+
 
 This repository contains a Java-based application managed with Maven, featuring an automated CI/CD pipeline using Jenkins. The project includes security scans, artifact deployment, and containerization for streamlined development and deployment.
 
