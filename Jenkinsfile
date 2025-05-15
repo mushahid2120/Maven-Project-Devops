@@ -53,7 +53,7 @@ pipeline {
             }
         }
         
-        stage('Docker Run') {
+        stage('Docker Push') {
             steps {
                 script{
                     withDockerRegistry(credentialsId: 'docker-cred', toolName: 'mydocker') {
@@ -62,7 +62,7 @@ pipeline {
                 }
             }
         }
-        stage('Docker Push') {
+        stage('Docker Run') {
             steps {
                 script{
                     withDockerRegistry(credentialsId: 'docker-cred', toolName: 'mydocker') {
