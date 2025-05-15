@@ -9,24 +9,28 @@ pipeline {
                 git branch: 'main', changelog: false, poll: false, url: 'https://github.com/mushahid2120/Maven-Project-Devops.git'
             }
         }
-        stage('Compile') {
+        stage('Compile and Test') {
             steps {
-                    sh "mvn clean package"
+                    sh "mvn clean test"
             }
         }
-        
+                
+        stage('Sonar Scanning') {
+            steps {
+                withSonarQubeEnv('sonar-server') {
+                    sh "mvn clean verify sonar:sonar -Dsonar.java.binarie=target -Dsonar.java.projectKey=myjenkinssonar"
+                    }
+            }
+        }
         stage('OWASP scan') {
             steps {
                 dependencyCheck additionalArguments: "--scan . --disableYarnAudit  --disableNodeAudit", odcInstallation: 'myDC'
                 dependencyCheckPublisher pattern: "**/dependency-check-report.xml"
             }
         }
-        
-        stage('Sonar Scanning') {
+        stage('Build') {
             steps {
-                withSonarQubeEnv('sonar-server') {
-                    sh "mvn clean verify sonar:sonar -Dsonar.java.binarie=target -Dsonar.java.projectKey=myjenkinssonar"
-                    }
+                    sh "mvn clean package"
             }
         }
         
